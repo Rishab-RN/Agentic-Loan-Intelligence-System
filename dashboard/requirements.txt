@@ -1,0 +1,11 @@
+# ──────────────────────────────────────────────
+# ALIS — Competition Demo Dashboard Dependencies
+# ──────────────────────────────────────────────
+
+streamlit>=1.38.0
+plotly>=5.24.0
+matplotlib>=3.9.0
+networkx>=3.0
+pandas>=2.0.0
+numpy>=2.0.0
+httpx>=0.28.0

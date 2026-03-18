@@ -1,0 +1,9 @@
+# ALIS — Fairness Audit dependencies
+
+fairlearn>=0.10.0
+reportlab>=4.2.0
+matplotlib>=3.9.0
+pandas>=2.0.0
+numpy>=2.0.0
+xgboost>=2.1.1
+scikit-learn>=1.5.0
