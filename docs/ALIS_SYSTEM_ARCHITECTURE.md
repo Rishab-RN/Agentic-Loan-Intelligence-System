@@ -2,7 +2,6 @@
 ## Complete System Architecture Document
 
 > **Version**: 1.0 · **Date**: March 2026
-> **Authors**: Om & Rishab, Dept. of AIML, RVCE Bengaluru
 > **Target**: RVCE FinTech Innovation Summit 2026
 
 ---
@@ -26,7 +25,7 @@ ALIS is a **six-agent system** orchestrated via a LangGraph `StateGraph`. The ag
 microservices communicating over HTTP — they are **co-located Python modules sharing a typed
 state dictionary**, coordinated by a directed acyclic graph with conditional edges. This is a
 deliberate choice: it gives us the modularity of an agent architecture without the latency
-overhead of network calls, which matters when the end user is an auto driver in Ballari waiting
+overhead of network calls, which matters when the end user is an auto driver waiting
 on a WhatsApp bot response.
 
 ```
