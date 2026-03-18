@@ -1,49 +1,45 @@
-# Environments
+# ──────────────────────────────────────────
+# ALIS — .gitignore
+# ──────────────────────────────────────────
+
+# Virtual environments
 .env
-.venv
+.venv/
 env/
 venv/
 ENV/
-env.bak/
-venv.bak/
 
-# Byte-compiled / optimized / DLL files
+# Byte-compiled / optimized
 __pycache__/
 *.py[cod]
 *$py.class
 
 # Distribution / packaging
-.Python
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
 *.egg-info/
-.installed.cfg
 *.egg
-MANIFEST
 
-# VS Code / IDEs
+# Model artifacts & generated data (regenerate with scripts)
+agents/risk_mind/artifacts/
+agents/fraud_sentinel/artifacts/
+agents/fairness_audit/artifacts/
+agents/compliance_guard/chroma_db/
+agents/compliance_guard/compliance_audit.db
+
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Mac / Windows
+# OS
 .DS_Store
 Thumbs.db
 
-# Jupyter Notebook
-.ipynb_checkpoints
+# Jupyter
+.ipynb_checkpoints/
 
-# Temporary files
+# Logs & temp
 *.log
+audit_err.log

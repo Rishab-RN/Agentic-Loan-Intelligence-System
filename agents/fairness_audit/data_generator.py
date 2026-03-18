@@ -41,7 +41,7 @@ def generate_demographic_dataset(n_samples: int = 1000, random_state: int = 42) 
     np.random.seed(random_state)
     
     # Generate the base behavioral features and loan_approved target
-    df = generate_gig_worker_dataset(n_samples=n_samples)
+    df = generate_gig_worker_dataset(n=n_samples)
     
     # ─── 1. Generate Demographics with Realistic Indian Distributions ──────────
     

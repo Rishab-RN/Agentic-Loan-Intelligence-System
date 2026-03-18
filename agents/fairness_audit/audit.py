@@ -61,7 +61,7 @@ def run_audit():
     
     # Features
     X = df.drop(columns=[
-        "loan_approved", "gender", "geography_tier", "income_band", "occupation"
+        "loan_approved", "gender", "geography_tier", "income_band", "occupation", "persona"
     ])
 
     X_train, X_test, y_train, y_test, A_gender_train, A_gender_test, A_tier_train, A_tier_test = train_test_split(
