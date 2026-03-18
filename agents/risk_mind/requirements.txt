@@ -1,0 +1,26 @@
+# ──────────────────────────────────────────────
+# ALIS — RiskMind Agent Dependencies
+# ──────────────────────────────────────────────
+
+# Core ML
+xgboost==2.1.4
+scikit-learn==1.6.1
+shap==0.46.0
+
+# Data handling
+numpy==2.2.3
+pandas==2.2.3
+
+# API
+fastapi==0.115.11
+uvicorn==0.34.0
+pydantic==2.10.6
+
+# Model persistence
+joblib==1.4.2
+
+# Visualization (SHAP plots)
+matplotlib==3.10.1
+
+# HTTP client (for testing)
+httpx==0.28.1

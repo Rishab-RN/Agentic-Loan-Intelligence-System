@@ -1,0 +1,29 @@
+# ──────────────────────────────────────────────
+# ALIS — FraudSentinel Agent Dependencies
+# ──────────────────────────────────────────────
+
+# Graph ML
+torch>=2.2.0
+torch_geometric>=2.5.0
+
+# Graph construction & analysis
+networkx>=3.2
+
+# Core ML / utilities
+scikit-learn>=1.4.0
+numpy>=2.0.0
+pandas>=2.2.0
+
+# API
+fastapi>=0.115.0
+uvicorn>=0.34.0
+pydantic>=2.10.0
+
+# Model persistence
+joblib>=1.4.0
+
+# Visualization
+matplotlib>=3.9.0
+
+# HTTP client (testing)
+httpx>=0.28.0
