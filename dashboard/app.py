@@ -223,13 +223,13 @@ def create_network_graph(fraud_level):
 
     node_trace = go.Scatter(
         x=node_x, y=node_y, mode='markers', hoverinfo='text',
-        marker=dict(size=10, color=node_colors, lineWidth=2)
+        marker=dict(size=10, color=node_colors, line=dict(width=2))
     )
 
     fig = go.Figure(data=[edge_trace, node_trace])
     fig.update_layout(
         title="UPI Transaction Network",
-        titlefont_size=16, showlegend=False, hovermode='closest',
+        title_font_size=16, showlegend=False, hovermode='closest',
         margin=dict(b=20,l=5,r=5,t=40),
         xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
         yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),

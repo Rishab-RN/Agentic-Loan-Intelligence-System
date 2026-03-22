@@ -5,7 +5,7 @@
 # Core ML
 xgboost==2.1.4
 scikit-learn==1.6.1
-shap==0.46.0
+shap>=0.46.0
 
 # Data handling
 numpy==2.2.3
