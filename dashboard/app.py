@@ -266,11 +266,13 @@ st.sidebar.markdown(f"**Profile:**<br>{data['profile']}", unsafe_allow_html=True
 st.sidebar.markdown(f"**Requested Loan:** ₹{data['amount']:,}")
 
 if st.sidebar.button("🔄 Reset / Start Fresh", use_container_width=True):
-    # Streamlit hack to rerun and clear state
+    st.session_state.processed = False
     st.rerun()
 
 # ─── Main Logic ───
-run_demo = st.button("🚀 Process Loan Application", type="primary", use_container_width=True)
+if st.button("🚀 Process Loan Application", type="primary", use_container_width=True):
+    st.session_state.processed = True
+    st.session_state.just_clicked = True
 
 # SECTION B: Agent Pipeline
 st.markdown("### ⚙️ Multi-Agent Orchestration Pipeline")
@@ -282,43 +284,46 @@ placeholders = [col.empty() for col in cols]
 for i, ph in enumerate(placeholders):
     ph.markdown(render_agent_box(agent_names[i], "waiting", "Waiting..."), unsafe_allow_html=True)
 
-if run_demo:
+if st.session_state.get('processed', False):
+    do_animate = st.session_state.get('just_clicked', False)
+    st.session_state.just_clicked = False
+    _sleep = time.sleep if do_animate else lambda x: None
     # Animate pipeline
     agents_status = ["waiting"] * 5
     
     # 1. Data Harvester
     placeholders[0].markdown(render_agent_box(agent_names[0], "processing", "Collecting UPI Data...", ""), unsafe_allow_html=True)
-    time.sleep(0.5)
+    _sleep(0.5)
     placeholders[0].markdown(render_agent_box(agent_names[0], "done", "Data Synced", "450ms"), unsafe_allow_html=True)
     
     # 2. Fraud Sentinel
     placeholders[1].markdown(render_agent_box(agent_names[1], "processing", "Building Network...", ""), unsafe_allow_html=True)
-    time.sleep(0.8)
+    _sleep(0.8)
     if data["fraud_level"] == "BLOCK":
         placeholders[1].markdown(render_agent_box(agent_names[1], "flagged", "Mule Ring Detected!", "720ms"), unsafe_allow_html=True)
         # Short circuit logic!
         placeholders[2].markdown(render_agent_box(agent_names[2], "waiting", "Bypassed"), unsafe_allow_html=True)
         placeholders[3].markdown(render_agent_box(agent_names[3], "waiting", "Bypassed"), unsafe_allow_html=True)
         placeholders[4].markdown(render_agent_box(agent_names[4], "processing", "Generating Alert...", ""), unsafe_allow_html=True)
-        time.sleep(0.6)
+        _sleep(0.6)
         placeholders[4].markdown(render_agent_box(agent_names[4], "done", "Explanation Ready", "500ms"), unsafe_allow_html=True)
     else:
         placeholders[1].markdown(render_agent_box(agent_names[1], "done", "Network Clean", "640ms"), unsafe_allow_html=True)
         
         # 3. Risk Mind
         placeholders[2].markdown(render_agent_box(agent_names[2], "processing", "Scoring & SHAP...", ""), unsafe_allow_html=True)
-        time.sleep(1.0)
+        _sleep(1.0)
         status_rm = "done" if data["decision"] == "APPROVED" else "flagged"
         placeholders[2].markdown(render_agent_box(agent_names[2], status_rm, f"Score: {data['score']}", "980ms"), unsafe_allow_html=True)
         
         # 4. Compliance Guard
         placeholders[3].markdown(render_agent_box(agent_names[3], "processing", "RAG Check: RBI...", ""), unsafe_allow_html=True)
-        time.sleep(0.7)
+        _sleep(0.7)
         placeholders[3].markdown(render_agent_box(agent_names[3], "done", "Compliant", "610ms"), unsafe_allow_html=True)
         
         # 5. Explainer Voice
         placeholders[4].markdown(render_agent_box(agent_names[4], "processing", "Translating (LLM)...", ""), unsafe_allow_html=True)
-        time.sleep(1.2)
+        _sleep(1.2)
         placeholders[4].markdown(render_agent_box(agent_names[4], "done", "Explanation Ready", "1.1s"), unsafe_allow_html=True)
 
     st.markdown("---")
