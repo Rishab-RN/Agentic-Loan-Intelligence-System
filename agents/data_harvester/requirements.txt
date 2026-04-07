@@ -1,0 +1,10 @@
+# ──────────────────────────────────────────────
+# ALIS — DataHarvester Agent Dependencies
+# ──────────────────────────────────────────────
+
+# Data handling
+numpy>=2.0.0
+pandas>=2.2.0
+
+# Validation
+pydantic>=2.10.0

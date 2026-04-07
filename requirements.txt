@@ -1,0 +1,51 @@
+# ══════════════════════════════════════════════════════════════
+# ALIS — Agentic Loan Intelligence System
+# Unified Requirements
+# ══════════════════════════════════════════════════════════════
+
+# ─── Orchestration ────────────────────────────────────────────
+langgraph>=0.2.0
+langchain-core>=0.2.0
+
+# ─── Core ML / Credit Scoring (RiskMind) ─────────────────────
+xgboost>=2.1.0
+scikit-learn>=1.4.0
+shap>=0.46.0
+
+# ─── Graph ML / Fraud Detection (FraudSentinel) ─────────────
+torch>=2.2.0
+torch_geometric>=2.5.0
+networkx>=3.2
+
+# ─── RAG / Compliance (ComplianceGuard) ──────────────────────
+chromadb>=0.5.0
+sentence-transformers>=3.0.0
+PyPDF2>=3.0.0
+langchain>=0.3.0
+langchain-community>=0.3.0
+
+# ─── Fairness Auditing ───────────────────────────────────────
+fairlearn>=0.11.0
+reportlab>=4.1.0
+
+# ─── Data Handling ───────────────────────────────────────────
+numpy>=2.0.0
+pandas>=2.2.0
+
+# ─── API Layer ───────────────────────────────────────────────
+fastapi>=0.115.0
+uvicorn>=0.34.0
+pydantic>=2.10.0
+
+# ─── Dashboard ───────────────────────────────────────────────
+streamlit>=1.40.0
+plotly>=5.24.0
+
+# ─── Model Persistence ──────────────────────────────────────
+joblib>=1.4.0
+
+# ─── Visualization ──────────────────────────────────────────
+matplotlib>=3.9.0
+
+# ─── HTTP Client ─────────────────────────────────────────────
+httpx>=0.28.0
